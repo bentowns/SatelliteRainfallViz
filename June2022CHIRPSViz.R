@@ -13,7 +13,7 @@ library(sfheaders) #For transforming geospatial objects to dataframe
 #-------------------------------------------------------------------------------
 #connect to rnaturalearth
 Ghana <- ne_countries(country = "Ghana", scale = "medium")
-
+plot(Ghana)
 #transform to sf
 Ghana <- st_as_sf(Ghana)
 
@@ -36,6 +36,7 @@ June2022CHIRPS <- subst(June2022CHIRPS, -9999, NA)
 #Make Copies - for raster manipulation
 DryDays <- June2022CHIRPS
 ExtremeWetDays <- June2022CHIRPS
+plot(DryDays)
 #-------------------------------------------------------------------------------
 #Dry days raster manipulation
 #end goal is where 1 = dry day and 0 = wet day
@@ -127,3 +128,5 @@ ggplot() +
                     labels=c(0, 0.1, 4, 8, 12)) +
   ggtitle("Extreme Wet Days (> 20mm per day), June 2022") +
   theme_void()
+
+checkgauges <- read_csv()
